@@ -3,214 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Irene & Walter's Tour Services</title>
+    <title>Prince & Raiden - Pizza Showdown</title>
     <style>
-        :root {
-            --primary: #d97706; /* Warm sunset orange */
-            --secondary: #b45309;
-            --dark: #1f2937;
-            --light: #f9fafb;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
         body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-        }
-
-        /* Header / Hero Section */
-        header {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-            color: white;
-            text-align: center;
-            padding: 120px 20px;
-        }
-
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-        }
-
-        header p {
-            font-size: 1.3rem;
-            max-width: 600px;
-            margin: 0 auto 20px auto;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s ease;
-        }
-
-        .btn:hover {
-            background: var(--secondary);
-        }
-
-        /* Container */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        /* Section Titles */
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            color: var(--dark);
-        }
-
-        /* Product Section (Masai Mara) */
-        .product-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 50px;
-        }
-
-        .product-img {
-            flex: 1;
-            min-width: 300px;
-            background: url('https://images.unsplash.com/photo-1534177616072-ef7dc120449d?auto=format&fit=crop&w=800&q=80') no-repeat center center/cover;
-            min-height: 300px;
-        }
-
-        .product-info {
-            flex: 1;
-            padding: 40px;
-            min-width: 300px;
-        }
-
-        .product-info h3 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .service-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .service-card h4 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--secondary);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
+            background-color: #0f172a;
+            color: #f8fafc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
             padding: 40px 20px;
-            margin-top: 40px;
+            margin: 0;
         }
-
-        footer p {
+        h1 {
+            color: #e50914;
             margin-bottom: 10px;
+        }
+        p {
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+        video {
+            max-width: 100%;
+            width: 700px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
     </style>
 </head>
 <body>
 
-    <!-- Hero Section -->
-    <header>
-        <h1>Irene & Walter's Tour Services</h1>
-        <p>Your ultimate gateway to unforgettable African wildlife adventures and breathtaking experiences.</p>
-        <a href="#services" class="btn">Explore Our Adventures</a>
-    </header>
+    <h1>Prince & Raiden: The Pizza Battle</h1>
+    <p>An epic argument, a shirtless showdown, and a peaceful Coca-Cola finish.</p>
 
-    <div class="container">
-        
-        <!-- Main Product Section -->
-        <section>
-            <h2 class="section-title">Featured Package</h2>
-            <div class="product-card">
-                <div class="product-img"></div>
-                <div class="product-info">
-                    <h3>Masai Mara Tours</h3>
-                    <p>Experience the magic of the wild with our flagship Masai Mara tours. Witness majestic wildlife up close, track the great migration, and immerse yourself in nature with expert guides who know the terrain inside and out.</p>
-                    <br>
-                    <a href="#contact" class="btn">Book This Tour</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services">
-            <h2 class="section-title">Included Activities & Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h4>🦁 Game Drives</h4>
-                    <p>Thrilling safaris led by experienced game drivers to spot the Big Five and hidden wildlife gems.</p>
-                </div>
-                <div class="service-card">
-                    <h4>🔥 Bonfire Activities</h4>
-                    <p>Relax under the African stars around a warm bonfire sharing stories and enjoying the night ambiance.</p>
-                </div>
-                <div class="service-card">
-                    <h4>🏊‍♂️ Swimming</h4>
-                    <p>Refresh and unwind in pristine swimming pools after an adventurous day out in the wild.</p>
-                </div>
-                <div class="service-card">
-                    <h4>🐎 Horse Riding</h4>
-                    <p>Take an exciting ride through scenic landscapes on horseback, getting closer to nature.</p>
-                </div>
-                <div class="service-card">
-                    <h4>🐪 Camel Riding</h4>
-                    <p>Enjoy a fun and unique traditional camel riding experience across stunning terrain.</p>
-                </div>
-                <div class="service-card">
-                    <h4>🌅 Sunset Viewing</h4>
-                    <p>Witness unforgettable African golden sunsets from breathtaking vantage points.</p>
-                </div>
-            </div>
-        </section>
-
-    </div>
-
-    <!-- Footer / Contact -->
-    <footer id="contact">
-        <h3>Irene & Walter's Tour Services</h3>
-        <p>Ready for your next safari? Contact us today to book your trip!</p>
-        <p>Email: info@ireneandwalterstours.com | Phone: +254 700 000 000</p>
-        <p style="font-size: 0.9rem; margin-top: 20px; color: #9ca3af;">&copy; 2026 Irene & Walter's Tour Services. All rights reserved.</p>
-    </footer>
+    <!-- Video Player -->
+    <video controls autoplay muted>
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
 </body>
 </html>
