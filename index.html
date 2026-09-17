@@ -3,170 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Irene, You, Me, and Calvin Are Meant to Be!</title>
+    <title>Irene & Walter's Tour Services</title>
     <style>
-        body, html {
+        :root {
+            --primary: #d97706; /* Warm sunset orange */
+            --secondary: #b45309;
+            --dark: #1f2937;
+            --light: #f9fafb;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
+            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #05050a;
         }
 
-        /* Paris Eiffel Tower Background */
-        .bg-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1000&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            filter: brightness(0.65) contrast(1.1);
-            z-index: 1;
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
         }
 
-        /* Romantic Overlay */
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(15, 5, 20, 0.4), rgba(50, 10, 35, 0.75));
-            z-index: 2;
-        }
-
-        /* Message Card */
-        .card-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10;
+        /* Header / Hero Section */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            color: white;
             text-align: center;
-            width: 85%;
-            max-width: 460px;
-            padding: 35px 25px;
-            background: rgba(25, 15, 30, 0.8);
-            backdrop-filter: blur(12px);
-            border-radius: 30px;
-            border: 2px solid rgba(255, 105, 180, 0.5);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 20, 147, 0.4);
-            animation: pulseCard 3s infinite ease-in-out;
+            padding: 120px 20px;
         }
 
-        @keyframes pulseCard {
-            0%, 100% { border-color: rgba(255, 105, 180, 0.4); box-shadow: 0 20px 40px rgba(0,0,0,0.7), 0 0 25px rgba(255,20,147,0.3); }
-            50% { border-color: rgba(255, 20, 147, 0.9); box-shadow: 0 20px 40px rgba(0,0,0,0.7), 0 0 45px rgba(255,20,147,0.7); }
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
         }
 
-        h1 {
-            color: #ffffff;
-            font-size: 1.7rem;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 12px rgba(255, 20, 147, 0.9);
-            line-height: 1.4;
-        }
-
-        p {
-            color: #ffb6c1;
-            font-size: 1.2rem;
-            margin-bottom: 25px;
-            font-weight: 600;
-            text-shadow: 0 1px 6px rgba(0,0,0,0.8);
+        header p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
         }
 
         .btn {
-            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            display: inline-block;
+            background: var(--primary);
             color: white;
-            border: none;
-            padding: 14px 30px;
-            font-size: 1.1rem;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
             font-weight: bold;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 6px 20px rgba(255, 20, 147, 0.5);
-            transition: transform 0.2s;
+            transition: background 0.3s ease;
         }
 
-        .btn:active {
-            transform: scale(0.95);
+        .btn:hover {
+            background: var(--secondary);
         }
 
-        /* BIG Falling Elements (Bubbles & Red Teddy Bears) */
-        .falling-item {
-            position: absolute;
-            top: -70px;
-            z-index: 5;
-            user-select: none;
-            pointer-events: none;
-            animation: fall linear infinite;
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
         }
 
-        @keyframes fall {
-            0% {
-                transform: translateY(-70px) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(105vh) rotate(360deg);
-                opacity: 0.35;
-            }
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--dark);
+        }
+
+        /* Product Section (Masai Mara) */
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .product-img {
+            flex: 1;
+            min-width: 300px;
+            background: url('https://images.unsplash.com/photo-1534177616072-ef7dc120449d?auto=format&fit=crop&w=800&q=80') no-repeat center center/cover;
+            min-height: 300px;
+        }
+
+        .product-info {
+            flex: 1;
+            padding: 40px;
+            min-width: 300px;
+        }
+
+        .product-info h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-container"></div>
-    <div class="overlay"></div>
+    <!-- Hero Section -->
+    <header>
+        <h1>Irene & Walter's Tour Services</h1>
+        <p>Your ultimate gateway to unforgettable African wildlife adventures and breathtaking experiences.</p>
+        <a href="#services" class="btn">Explore Our Adventures</a>
+    </header>
 
-    <div class="card-container">
-        <h1>Irene, you, I, and Calvin are meant to be! 💕</h1>
-        <p>I love you, Irene, in Paris ✨🗼</p>
-        <button class="btn" onclick="celebrate()">Forever Together ❤️</button>
+    <div class="container">
+        
+        <!-- Main Product Section -->
+        <section>
+            <h2 class="section-title">Featured Package</h2>
+            <div class="product-card">
+                <div class="product-img"></div>
+                <div class="product-info">
+                    <h3>Masai Mara Tours</h3>
+                    <p>Experience the magic of the wild with our flagship Masai Mara tours. Witness majestic wildlife up close, track the great migration, and immerse yourself in nature with expert guides who know the terrain inside and out.</p>
+                    <br>
+                    <a href="#contact" class="btn">Book This Tour</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <h2 class="section-title">Included Activities & Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h4>🦁 Game Drives</h4>
+                    <p>Thrilling safaris led by experienced game drivers to spot the Big Five and hidden wildlife gems.</p>
+                </div>
+                <div class="service-card">
+                    <h4>🔥 Bonfire Activities</h4>
+                    <p>Relax under the African stars around a warm bonfire sharing stories and enjoying the night ambiance.</p>
+                </div>
+                <div class="service-card">
+                    <h4>🏊‍♂️ Swimming</h4>
+                    <p>Refresh and unwind in pristine swimming pools after an adventurous day out in the wild.</p>
+                </div>
+                <div class="service-card">
+                    <h4>🐎 Horse Riding</h4>
+                    <p>Take an exciting ride through scenic landscapes on horseback, getting closer to nature.</p>
+                </div>
+                <div class="service-card">
+                    <h4>🐪 Camel Riding</h4>
+                    <p>Enjoy a fun and unique traditional camel riding experience across stunning terrain.</p>
+                </div>
+                <div class="service-card">
+                    <h4>🌅 Sunset Viewing</h4>
+                    <p>Witness unforgettable African golden sunsets from breathtaking vantage points.</p>
+                </div>
+            </div>
+        </section>
+
     </div>
 
-    <script>
-        // BIG Bubbles and BIG Red Teddy Bears
-        const elements = ['🧸', '❤️', '🫧', '💖', '🧸', '🎈', '❤️', '🫧'];
+    <!-- Footer / Contact -->
+    <footer id="contact">
+        <h3>Irene & Walter's Tour Services</h3>
+        <p>Ready for your next safari? Contact us today to book your trip!</p>
+        <p>Email: info@ireneandwalterstours.com | Phone: +254 700 000 000</p>
+        <p style="font-size: 0.9rem; margin-top: 20px; color: #9ca3af;">&copy; 2026 Irene & Walter's Tour Services. All rights reserved.</p>
+    </footer>
 
-        function createFallingItem() {
-            const item = document.createElement('div');
-            item.classList.add('falling-item');
-            item.innerHTML = elements[Math.floor(Math.random() * elements.length)];
-            
-            // Random horizontal start position across the screen
-            item.style.left = Math.random() * 95 + 'vw';
-            
-            // BIG sizing for the teddy bears and bubbles (between 40px and 70px)
-            const size = Math.random() * 30 + 40; 
-            item.style.fontSize = size + 'px';
-            
-            // Random falling speed
-            const duration = Math.random() * 4 + 3.5; // between 3.5s and 7.5s
-            item.style.animationDuration = duration + 's';
-            
-            document.body.appendChild(item);
-
-            // Clean up element after it falls
-            setTimeout(() => {
-                item.remove();
-            }, duration * 1000);
-        }
-
-        // Generate big items continuously
-        setInterval(createFallingItem, 250);
-
-        function celebrate() {
-            alert('Paris is magical with you, Irene! Calvin and I love you forever! 🥰💖');
-            for(let i = 0; i < 35; i++) {
-                setTimeout(createFallingItem, i * 40);
-            }
-        }
-    </script>
 </body>
 </html>
