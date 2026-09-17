@@ -3,15 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Message for You</title>
+    <title>Zelani, Will You Be My Girlfriend?</title>
     <style>
-        * {
+        body, html {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body, html {
             width: 100%;
             height: 100%;
             overflow: hidden;
@@ -19,174 +15,180 @@
             background-color: #0b0f19;
         }
 
-        /* Background Paris Clouds Setting */
-        .scene {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, #1a1c29, #382845, #5b3256);
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Simulated Paris Silhouette / Atmosphere layer */
-        .paris-skyline {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 40%;
-            background: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1950&q=80') no-repeat bottom center;
-            background-size: cover;
-            opacity: 0.25;
-            filter: brightness(0.6);
-            z-index: 1;
-        }
-
-        /* Clouds overlay */
-        .clouds {
-            position: absolute;
-            width: 200%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0) 70%);
-            animation: drift 30s linear infinite;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        @keyframes drift {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0%); }
-        }
-
-        /* Sparks Canvas */
-        canvas {
+        /* Eiffel Tower Background */
+        .bg-container {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 3;
-            pointer-events: none;
+            background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.6) contrast(1.1);
+            z-index: 1;
         }
 
-        /* Central Message Box */
-        .message-container {
-            position: relative;
-            z-index: 4;
+        /* Dark overlay for romance */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(11, 15, 25, 0.4), rgba(40, 10, 30, 0.7));
+            z-index: 2;
+        }
+
+        /* Message Card */
+        .card-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
             text-align: center;
-            padding: 20px;
-            animation: fadeIn 3s ease-in-out;
+            width: 85%;
+            max-width: 450px;
+            padding: 30px 20px;
+            background: rgba(20, 15, 25, 0.75);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            border: 2px solid rgba(255, 105, 180, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 20, 147, 0.3);
+            animation: pulseCard 3s infinite ease-in-out;
+        }
+
+        @keyframes pulseCard {
+            0%, 100% { border-color: rgba(255, 105, 180, 0.4); box-shadow: 0 15px 35px rgba(0,0,0,0.6), 0 0 20px rgba(255,20,147,0.3); }
+            50% { border-color: rgba(255, 20, 147, 0.8); box-shadow: 0 15px 35px rgba(0,0,0,0.6), 0 0 40px rgba(255,20,147,0.6); }
         }
 
         h1 {
-            color: #fff;
-            font-size: clamp(2rem, 5vw, 4.5rem);
-            font-weight: 300;
-            letter-spacing: 3px;
-            text-shadow: 0 0 20px rgba(255, 105, 180, 0.8), 0 0 40px rgba(255, 105, 180, 0.4);
-            margin-bottom: 10px;
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(255, 20, 147, 0.8);
+            line-height: 1.4;
         }
 
-        .heart {
-            display: inline-block;
-            color: #ff3366;
-            animation: pulse 1.5s infinite;
-            text-shadow: 0 0 25px rgba(255, 51, 102, 0.8);
+        p {
+            color: #ffb6c1;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            font-weight: 500;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.8);
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.25); }
-            100% { transform: scale(1); }
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
         }
 
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
+        .btn {
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        .btn-no {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Falling Elements (Bubbles & Bears) */
+        .falling-item {
+            position: absolute;
+            top: -50px;
+            z-index: 5;
+            user-select: none;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(105vh) rotate(360deg);
+                opacity: 0.3;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="scene">
-        <div class="paris-skyline"></div>
-        <div class="clouds"></div>
-        <canvas id="sparksCanvas"></canvas>
+    <div class="bg-container"></div>
+    <div class="overlay"></div>
 
-        <div class="message-container">
-            <h1>I Love You <span class="heart">❤️</span></h1>
+    <div class="card-container">
+        <h1>Zelani, will you be my girlfriend? 💕</h1>
+        <p>Will you take Walter as your Man? ✨</p>
+        <div class="btn-group">
+            <button class="btn" onclick="celebrate()">Yes! ❤️</button>
+            <button class="btn btn-no" onclick="moveButton(this)">No</button>
         </div>
     </div>
 
     <script>
-        const canvas = document.getElementById('sparksCanvas');
-        const ctx = canvas.getContext('2d');
+        // Array of elements to fall (Love bubbles & Red Teddy Bears)
+        const elements = ['🧸', '❤️', '🫧', '💖', '🧸', '🎈', '❤️', '🫧'];
 
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
+        function createFallingItem() {
+            const item = document.createElement('div');
+            item.classList.add('falling-item');
+            item.innerHTML = elements[Math.floor(Math.random() * elements.length)];
+            
+            // Random horizontal start position
+            item.style.left = Math.random() * 100 + 'vw';
+            
+            // Random size for variety
+            const size = Math.random() * 20 + 20; // between 20px and 40px
+            item.style.fontSize = size + 'px';
+            
+            // Random fall duration (speed)
+            const duration = Math.random() * 4 + 3; // between 3s and 7s
+            item.style.animationDuration = duration + 's';
+            
+            document.body.appendChild(item);
 
-        const sparks = [];
-        const numSparks = 70;
-
-        class Spark {
-            constructor() {
-                this.reset();
-            }
-
-            reset() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2.5 + 0.5;
-                this.speedX = (Math.random() - 0.5) * 0.8;
-                this.speedY = -Math.random() * 1.5 - 0.5; // Floating upwards like sparks in clouds
-                this.opacity = Math.random();
-                this.fadeSpeed = Math.random() * 0.02 + 0.005;
-            }
-
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                this.opacity -= this.fadeSpeed;
-
-                if (this.y < 0 || this.opacity <= 0) {
-                    this.reset();
-                    this.y = canvas.height + 10;
-                }
-            }
-
-            draw() {
-                ctx.save();
-                ctx.globalAlpha = this.opacity;
-                ctx.fillStyle = '#ffeb99'; // Golden spark glow
-                ctx.shadowBlur = 10;
-                ctx.shadowColor = '#ff99cc';
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.restore();
-            }
+            // Clean up element after it falls off screen
+            setTimeout(() => {
+                item.remove();
+            }, duration * 1000);
         }
 
-        for (let i = 0; i < numSparks; i++) {
-            sparks.push(new Spark());
+        // Generate falling items continuously
+        setInterval(createFallingItem, 300);
+
+        // Fun interaction for the "No" button
+        function moveButton(btn) {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            btn.style.position = 'fixed';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
         }
 
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            sparks.forEach(spark => {
-                spark.update();
-                spark.draw();
-            });
-            requestAnimationFrame(animate);
+        function celebrate() {
+            alert('Yay!! ❤️ Welcome to Walter’s heart, Zelani! 🥰');
+            for(let i = 0; i < 30; i++) {
+                setTimeout(createFallingItem, i * 50);
+            }
         }
-
-        animate();
     </script>
 </body>
 </html>
