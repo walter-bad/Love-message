@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zelani, Will You Be My Girlfriend?</title>
+    <title>Irene, You, Me, and Calvin Are Meant to Be!</title>
     <style>
         body, html {
             margin: 0;
@@ -12,10 +12,10 @@
             height: 100%;
             overflow: hidden;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0b0f19;
+            background-color: #05050a;
         }
 
-        /* Eiffel Tower Background */
+        /* Paris Eiffel Tower Background */
         .bg-container {
             position: absolute;
             top: 0;
@@ -25,18 +25,18 @@
             background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1000&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-            filter: brightness(0.6) contrast(1.1);
+            filter: brightness(0.65) contrast(1.1);
             z-index: 1;
         }
 
-        /* Dark overlay for romance */
+        /* Romantic Overlay */
         .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(11, 15, 25, 0.4), rgba(40, 10, 30, 0.7));
+            background: linear-gradient(to bottom, rgba(15, 5, 20, 0.4), rgba(50, 10, 35, 0.75));
             z-index: 2;
         }
 
@@ -49,68 +49,58 @@
             z-index: 10;
             text-align: center;
             width: 85%;
-            max-width: 450px;
-            padding: 30px 20px;
-            background: rgba(20, 15, 25, 0.75);
-            backdrop-filter: blur(10px);
-            border-radius: 25px;
-            border: 2px solid rgba(255, 105, 180, 0.4);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 20, 147, 0.3);
+            max-width: 460px;
+            padding: 35px 25px;
+            background: rgba(25, 15, 30, 0.8);
+            backdrop-filter: blur(12px);
+            border-radius: 30px;
+            border: 2px solid rgba(255, 105, 180, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 20, 147, 0.4);
             animation: pulseCard 3s infinite ease-in-out;
         }
 
         @keyframes pulseCard {
-            0%, 100% { border-color: rgba(255, 105, 180, 0.4); box-shadow: 0 15px 35px rgba(0,0,0,0.6), 0 0 20px rgba(255,20,147,0.3); }
-            50% { border-color: rgba(255, 20, 147, 0.8); box-shadow: 0 15px 35px rgba(0,0,0,0.6), 0 0 40px rgba(255,20,147,0.6); }
+            0%, 100% { border-color: rgba(255, 105, 180, 0.4); box-shadow: 0 20px 40px rgba(0,0,0,0.7), 0 0 25px rgba(255,20,147,0.3); }
+            50% { border-color: rgba(255, 20, 147, 0.9); box-shadow: 0 20px 40px rgba(0,0,0,0.7), 0 0 45px rgba(255,20,147,0.7); }
         }
 
         h1 {
             color: #ffffff;
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             margin-bottom: 15px;
-            text-shadow: 0 2px 10px rgba(255, 20, 147, 0.8);
+            text-shadow: 0 2px 12px rgba(255, 20, 147, 0.9);
             line-height: 1.4;
         }
 
         p {
             color: #ffb6c1;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-bottom: 25px;
-            font-weight: 500;
-            text-shadow: 0 1px 5px rgba(0,0,0,0.8);
-        }
-
-        .btn-group {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
+            font-weight: 600;
+            text-shadow: 0 1px 6px rgba(0,0,0,0.8);
         }
 
         .btn {
             background: linear-gradient(135deg, #ff1493, #ff69b4);
             color: white;
             border: none;
-            padding: 12px 25px;
-            font-size: 1rem;
+            padding: 14px 30px;
+            font-size: 1.1rem;
             font-weight: bold;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
-            transition: transform 0.2s, background 0.2s;
+            box-shadow: 0 6px 20px rgba(255, 20, 147, 0.5);
+            transition: transform 0.2s;
         }
 
         .btn:active {
             transform: scale(0.95);
         }
 
-        .btn-no {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Falling Elements (Bubbles & Bears) */
+        /* BIG Falling Elements (Bubbles & Red Teddy Bears) */
         .falling-item {
             position: absolute;
-            top: -50px;
+            top: -70px;
             z-index: 5;
             user-select: none;
             pointer-events: none;
@@ -119,12 +109,12 @@
 
         @keyframes fall {
             0% {
-                transform: translateY(-50px) rotate(0deg);
+                transform: translateY(-70px) rotate(0deg);
                 opacity: 1;
             }
             100% {
                 transform: translateY(105vh) rotate(360deg);
-                opacity: 0.3;
+                opacity: 0.35;
             }
         }
     </style>
@@ -135,16 +125,13 @@
     <div class="overlay"></div>
 
     <div class="card-container">
-        <h1>Zelani, will you be my girlfriend? 💕</h1>
-        <p>Will you take Walter as your Man? ✨</p>
-        <div class="btn-group">
-            <button class="btn" onclick="celebrate()">Yes! ❤️</button>
-            <button class="btn btn-no" onclick="moveButton(this)">No</button>
-        </div>
+        <h1>Irene, you, I, and Calvin are meant to be! 💕</h1>
+        <p>I love you, Irene, in Paris ✨🗼</p>
+        <button class="btn" onclick="celebrate()">Forever Together ❤️</button>
     </div>
 
     <script>
-        // Array of elements to fall (Love bubbles & Red Teddy Bears)
+        // BIG Bubbles and BIG Red Teddy Bears
         const elements = ['🧸', '❤️', '🫧', '💖', '🧸', '🎈', '❤️', '🫧'];
 
         function createFallingItem() {
@@ -152,41 +139,32 @@
             item.classList.add('falling-item');
             item.innerHTML = elements[Math.floor(Math.random() * elements.length)];
             
-            // Random horizontal start position
-            item.style.left = Math.random() * 100 + 'vw';
+            // Random horizontal start position across the screen
+            item.style.left = Math.random() * 95 + 'vw';
             
-            // Random size for variety
-            const size = Math.random() * 20 + 20; // between 20px and 40px
+            // BIG sizing for the teddy bears and bubbles (between 40px and 70px)
+            const size = Math.random() * 30 + 40; 
             item.style.fontSize = size + 'px';
             
-            // Random fall duration (speed)
-            const duration = Math.random() * 4 + 3; // between 3s and 7s
+            // Random falling speed
+            const duration = Math.random() * 4 + 3.5; // between 3.5s and 7.5s
             item.style.animationDuration = duration + 's';
             
             document.body.appendChild(item);
 
-            // Clean up element after it falls off screen
+            // Clean up element after it falls
             setTimeout(() => {
                 item.remove();
             }, duration * 1000);
         }
 
-        // Generate falling items continuously
-        setInterval(createFallingItem, 300);
-
-        // Fun interaction for the "No" button
-        function moveButton(btn) {
-            const x = Math.random() * (window.innerWidth - 100);
-            const y = Math.random() * (window.innerHeight - 50);
-            btn.style.position = 'fixed';
-            btn.style.left = x + 'px';
-            btn.style.top = y + 'px';
-        }
+        // Generate big items continuously
+        setInterval(createFallingItem, 250);
 
         function celebrate() {
-            alert('Yay!! ❤️ Welcome to Walter’s heart, Zelani! 🥰');
-            for(let i = 0; i < 30; i++) {
-                setTimeout(createFallingItem, i * 50);
+            alert('Paris is magical with you, Irene! Calvin and I love you forever! 🥰💖');
+            for(let i = 0; i < 35; i++) {
+                setTimeout(createFallingItem, i * 40);
             }
         }
     </script>
