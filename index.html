@@ -3,42 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prince & Raiden - Pizza Showdown</title>
+    <title>Neema Makundu - Paris Romance</title>
     <style>
-        body {
-            background-color: #0f172a;
-            color: #f8fafc;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
-            padding: 40px 20px;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        h1 {
-            color: #e50914;
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Paris Background with a romantic dark evening filter */
+        .paris-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(rgba(10, 5, 20, 0.6), rgba(30, 10, 40, 0.7)), 
+                        url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Central Message Card */
+        .message-card {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 40px 60px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            animation: floatCard 4s ease-in-out infinite;
+        }
+
+        .message-card h1 {
+            color: #ffb7c5;
+            font-size: 3rem;
+            text-shadow: 0 0 10px rgba(255, 183, 197, 0.8), 0 0 20px rgba(255, 105, 180, 0.5);
             margin-bottom: 10px;
+            letter-spacing: 2px;
         }
-        p {
-            color: #94a3b8;
-            margin-bottom: 30px;
+
+        .message-card p {
+            color: #ffffff;
+            font-size: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
         }
-        video {
-            max-width: 100%;
-            width: 700px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
+        @keyframes floatCard {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Floating Love Teddies Simulation */
+        .teddy {
+            position: absolute;
+            font-size: 3.5rem;
+            z-index: 5;
+            animation: floatTeddy 6s ease-in-out infinite;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
+        }
+
+        .teddy-1 { bottom: 10%; left: 15%; animation-delay: 0s; }
+        .teddy-2 { bottom: 15%; right: 15%; animation-delay: 3s; }
+
+        @keyframes floatTeddy {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        /* Love Bubbles */
+        .bubble {
+            position: absolute;
+            bottom: -50px;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 192, 203, 0.8), rgba(255, 105, 180, 0.4));
+            border-radius: 50%;
+            box-shadow: inset 0 0 10px rgba(255,255,255,0.6), 0 0 15px rgba(255,105,180,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            animation: riseBubble linear infinite;
+            z-index: 4;
+        }
+
+        @keyframes riseBubble {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-110vh) scale(1.2); opacity: 0; }
+        }
+
+        /* Sparkling Fireworks overlay */
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ff69b4, 0 0 20px #ff1493, 0 0 30px #ffffff;
+            animation: explode 1.5s ease-out infinite;
+            z-index: 3;
+        }
+
+        @keyframes explode {
+            0% { transform: scale(0.1); opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { transform: scale(30); opacity: 0; }
         }
     </style>
 </head>
 <body>
 
-    <h1>Prince & Raiden: The Pizza Battle</h1>
-    <p>An epic argument, a shirtless showdown, and a peaceful Coca-Cola finish.</p>
+    <div class="paris-container">
+        <!-- Sparkling Fireworks Positions -->
+        <div class="firework" style="top: 20%; left: 30%; animation-delay: 0.2s;"></div>
+        <div class="firework" style="top: 30%; left: 70%; animation-delay: 0.8s;"></div>
+        <div class="firework" style="top: 15%; left: 50%; animation-delay: 1.4s;"></div>
 
-    <!-- Video Player -->
-    <video controls autoplay muted>
-        <source src="video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+        <!-- Love Teddies -->
+        <div class="teddy teddy-1">🧸❤️</div>
+        <div class="teddy teddy-2">🧸💖</div>
+
+        <!-- Love Bubbles -->
+        <div class="bubble" style="left: 10%; width: 40px; height: 40px; animation-duration: 7s; animation-delay: 0s;">❤️</div>
+        <div class="bubble" style="left: 35%; width: 60px; height: 60px; animation-duration: 9s; animation-delay: 2s;">💖</div>
+        <div class="bubble" style="left: 65%; width: 50px; height: 50px; animation-duration: 6s; animation-delay: 1s;">💘</div>
+        <div class="bubble" style="left: 85%; width: 45px; height: 45px; animation-duration: 8s; animation-delay: 3s;">❤️</div>
+
+        <!-- Center Message Box -->
+        <div class="message-card">
+            <h1>Neema Makundu</h1>
+            <p>✨ Forever in Paris with Love ✨</p>
+        </div>
+    </div>
 
 </body>
 </html>
