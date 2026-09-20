@@ -3,24 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Joyce ❤️</title>
+    <title>For You ❤️</title>
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body, html {
             width: 100%;
             height: 100%;
-            overflow: hidden;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a001a, #4a0033);
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .container {
-            position: relative;
+        .slide {
+            position: absolute;
             width: 100%;
             height: 100%;
             display: flex;
@@ -29,199 +32,157 @@
             align-items: center;
             text-align: center;
             color: white;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
             padding: 20px;
-            z-index: 2;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
         }
 
         h1 {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 10px rgba(255, 0, 100, 0.6);
-        }
-
-        p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
         }
 
         .btn {
-            background: #ff3366;
-            color: white;
+            background-color: white;
+            color: #ff4b6e;
             border: none;
             padding: 12px 30px;
-            font-size: 1.1rem;
-            border-radius: 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(255, 51, 102, 0.5);
-            transition: 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s, background-color 0.2s;
+            margin-top: 20px;
+            z-index: 10;
         }
 
         .btn:hover {
-            background: #ff1a4d;
             transform: scale(1.05);
+            background-color: #fff0f3;
         }
 
-        /* Floating Balloons Animation */
-        .balloon {
+        /* Falling Emojis Animation */
+        .falling-emoji {
             position: absolute;
-            bottom: -100px;
-            background-color: #ff3366;
-            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
-            animation: floatUp 6s infinite ease-in;
+            top: -50px;
+            font-size: 2rem;
+            animation: fall linear infinite;
             z-index: 1;
-            opacity: 0.8;
+            user-select: none;
         }
 
-        .balloon::after {
-            content: "";
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            width: 2px;
-            height: 10px;
-            background: #fff;
-        }
-
-        @keyframes floatUp {
+        @keyframes fall {
             0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0.9;
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 1;
             }
             100% {
-                transform: translateY(-110vh) rotate(15deg);
+                transform: translateY(105vh) rotate(360deg);
                 opacity: 0;
             }
         }
 
-        /* Popup Modal */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.4s ease;
+        /* Balloons Animation */
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            font-size: 3rem;
+            animation: floatUp ease-in infinite;
+            z-index: 1;
+            user-select: none;
         }
 
-        .modal-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-60vh) scale(1.1);
+            }
+            100% {
+                transform: translateY(-120vh) scale(0.9);
+                opacity: 0;
+            }
         }
 
-        .modal-content {
-            background: linear-gradient(135deg, #ff4e50, #f9d423);
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            color: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transform: scale(0.7);
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            max-width: 90%;
-            width: 400px;
-        }
-
-        .modal-overlay.active .modal-content {
-            transform: scale(1);
-        }
-
-        .modal-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
-        }
-
-        .modal-content p {
-            font-size: 1.1rem;
-            background: none;
-            box-shadow: none;
-            margin-bottom: 20px;
-        }
-
-        .close-btn {
-            background: white;
-            color: #ff3366;
-            border: none;
-            padding: 10px 25px;
-            font-weight: bold;
-            border-radius: 20px;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>For My Love, Joyce ❤️</h1>
-        <p>
-            Kwa kweli Joyce bado nakupenda.. najua nilikosea lakini nakuomba msamaha... 
-            i still love you and value you... naomba unipe second chance my love.
-        </p>
-        <button class="btn" onclick="openPopup()">Click for a Special Message ✨</button>
+    <!-- Slide 1 -->
+    <div class="slide active" id="slide1">
+        <h1>Babe, I am so sorry 💔</h1>
+        <button class="btn" onclick="goToSlide2()">Next ❤️</button>
     </div>
 
-    <!-- Popup Slide -->
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal-content">
-            <h2>Junior Loves You! 🎆</h2>
-            <p>Sparkling fireworks in Paris just for us ✨🗼</p>
-            <button class="close-btn" onclick="closePopup()">Close</button>
-        </div>
+    <!-- Slide 2 -->
+    <div class="slide" id="slide2">
+        <h1>I honestly love you so much 💕</h1>
     </div>
 
     <script>
-        // Create floating love balloons dynamically
-        function createBalloon() {
-            const balloon = document.createElement('div');
-            balloon.classList.add('balloon');
+        function createFallingEmojis() {
+            const emojis = ['❤️', '💖', '💘', '💕', '💗', '🌹', '✨'];
+            const slide1 = document.getElementById('slide1');
             
-            // Random sizing and positioning
-            const size = Math.random() * 30 + 30; // 30px to 60px
-            balloon.style.width = `${size}px`;
-            balloon.style.height = `${size * 1.2}px`;
-            balloon.style.left = `${Math.random() * 100}vw`;
-            
-            // Random colors (reds, pinks, purples)
-            const colors = ['#ff3366', '#ff1a75', '#ff4d4d', '#ff66b2', '#e60000'];
-            balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            
-            // Random speed
-            const duration = Math.random() * 3 + 4; // 4s to 7s
-            balloon.style.animationDuration = `${duration}s`;
-            
-            document.body.appendChild(balloon);
-            
-            // Remove after animation completes
-            setTimeout(() => {
-                balloon.remove();
-            }, duration * 1000);
+            setInterval(() => {
+                if (document.getElementById('slide1').classList.contains('active')) {
+                    const elem = document.createElement('div');
+                    elem.classList.add('falling-emoji');
+                    elem.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+                    elem.style.left = Math.random() * window.innerWidth + 'px';
+                    elem.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    slide1.appendChild(elem);
+
+                    setTimeout(() => {
+                        elem.remove();
+                    }, 5000);
+                }
+            }, 300);
         }
 
-        // Generate balloons periodically
-        setInterval(createBalloon, 400);
+        function createBalloons() {
+            const balloonsList = ['🎈', '❤️', '🎈', '💖', '🎈'];
+            const slide2 = document.getElementById('slide2');
+            
+            setInterval(() => {
+                if (document.getElementById('slide2').classList.contains('active')) {
+                    const elem = document.createElement('div');
+                    elem.classList.add('balloon');
+                    elem.innerHTML = balloonsList[Math.floor(Math.random() * balloonsList.length)];
+                    elem.style.left = Math.random() * window.innerWidth + 'px';
+                    elem.style.animationDuration = (Math.random() * 4 + 3) + 's';
+                    slide2.appendChild(elem);
 
-        // Modal controls
-        function openPopup() {
-            document.getElementById('modalOverlay').classList.add('active');
+                    setTimeout(() => {
+                        elem.remove();
+                    }, 7000);
+                }
+            }, 400);
         }
 
-        function closePopup() {
-            document.getElementById('modalOverlay').classList.remove('active');
+        function goToSlide2() {
+            document.getElementById('slide1').classList.remove('active');
+            document.getElementById('slide2').classList.add('active');
         }
+
+        createFallingEmojis();
+        createBalloons();
     </script>
 </body>
 </html>
